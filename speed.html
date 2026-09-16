@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speed Optimization Case Study — Atiya Shahab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="speed.css">
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<header class="case-topbar">
+  <a href="index.html" class="case-logo">Atiya <span class="logo-highlight">Shahab</span></a>
+  <a href="index.html#projects" class="case-back">← Back to Projects</a>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="case-hero" id="caseHero">
+  <h1 class="case-title">Speed Optimization Case Study</h1>
+  <p class="case-subtitle">Glitter.com — a Kuwait-based Shopify store. Here's how I took it from a 12 second load time down to 1–2 seconds.</p>
+</section>
+
+<!-- ===== THE PROBLEM ===== -->
+<section class="case-section" id="sectionProblem">
+  <h2 class="case-heading">The Problem</h2>
+  <p class="case-text">
+    The client came to me with a simple but costly issue — their store was taking far too long to load. Pages were slow to open, and it was clearly hurting the experience. The longer the store took to load, the more visitors got impatient and left before they even saw the products, which meant conversions were dropping.
+  </p>
+  <a href="assets/speed-proof.jpeg" class="case-btn-outline" target="_blank" rel="noopener">View Speed Proof</a>
+</section>
+
+<!-- ===== WHAT I DID ===== -->
+<section class="case-section" id="sectionProcess">
+  <h2 class="case-heading">What I Did</h2>
+
+  <div class="case-steps">
+    <div class="case-step">
+      <span class="step-num">1</span>
+      <div class="step-body">
+        <h3 class="step-title">Ran a speed test</h3>
+        <p class="step-text">
+          As soon as I opened the store, I could tell it was loading slowly. To confirm it, I ran the store's URL through
+          <a href="assets/speed-proof.jpeg" class="case-inline-link" target="_blank" rel="noopener">Page Speed Insights</a>
+          — a free Google tool that measures a website's exact loading speed on both mobile and desktop. The result: the store was taking 12 seconds to load on mobile, well above the 3-second benchmark every Shopify store should stay under.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-step">
+      <span class="step-num">2</span>
+      <div class="step-body">
+        <h3 class="step-title">Audited the store</h3>
+        <p class="step-text">
+          I went through the store to figure out why it was so slow. It turned out 13 apps were installed. The client explained that every single one was actively being used for the business, so removing them wasn't an option.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-step">
+      <span class="step-num">3</span>
+      <div class="step-body">
+        <h3 class="step-title">Converted All Banner and Product Images to WebP Format</h3>
+        <p class="step-text">
+          Next, I checked the format and size of the product images and banners — they were saved in regular JPG/PNG format, which made the file sizes unnecessarily large, some up to 5MB each. I converted all of them to
+          <a href="https://www.iloveimg.com/compress-image" class="case-inline-link" target="_blank" rel="noopener">WebP</a>
+          format using I Love Img, a format that compresses images to a much smaller size without losing visual quality, helping the store load significantly faster.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-step">
+      <span class="step-num">4</span>
+      <div class="step-body">
+        <h3 class="step-title">Removed unnecessary sections</h3>
+        <p class="step-text">
+          The store had several heavy sections that weren't serving any real purpose — just sitting there adding extra weight. I removed them to lighten the page.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-step">
+      <span class="step-num">5</span>
+      <div class="step-body">
+        <h3 class="step-title">Cleaned up the code</h3>
+        <p class="step-text">
+          Checking the browser console, I found extra CSS and JS files loading on every single page — even on pages that didn't need them. I moved that code out of the global files and into the specific sections where it was actually used, and set the remaining scripts to load with async/defer, so they load in the background instead of blocking the page from displaying.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CORE WEB VITALS ===== -->
+<section class="case-section" id="sectionVitals">
+  <h2 class="case-heading">Understanding the Numbers: Core Web Vitals</h2>
+  <p class="case-text">
+    Page Speed Insights doesn't just give a single score — it breaks a page's loading experience down into a set of metrics Google calls Core Web Vitals. Each one measures a different part of what a real visitor experiences between clicking a link and being able to actually use the page. Here's what Glitter.com's report showed, and what each metric actually means.
+  </p>
+
+  <div class="vitals-grid">
+    <div class="vitals-card">
+      <p class="vitals-name">First Contentful Paint</p>
+      <p class="vitals-value">2.4s</p>
+      <p class="vitals-desc">The moment the very first bit of content — text, a color, anything — appears on screen. It's the first sign to a visitor that the page is actually loading.</p>
+    </div>
+
+    <div class="vitals-card vitals-bad">
+      <p class="vitals-name">Largest Contentful Paint</p>
+      <p class="vitals-value">6.7s</p>
+      <p class="vitals-desc">The moment the biggest, most meaningful element on the page — usually a hero image or banner — is fully visible. Google considers anything under 2.5s "good." Glitter.com was nearly 3x slower than that.</p>
+    </div>
+
+    <div class="vitals-card vitals-bad">
+      <p class="vitals-name">Total Blocking Time</p>
+      <p class="vitals-value">7,920ms</p>
+      <p class="vitals-desc">The total time the page was too busy running scripts to respond to a tap or click. This was the single biggest problem on the store, caused by too much JavaScript loading and running at once.</p>
+    </div>
+
+    <div class="vitals-card">
+      <p class="vitals-name">Cumulative Layout Shift</p>
+      <p class="vitals-value">0.004</p>
+      <p class="vitals-desc">Measures how much content jumps around while the page loads — buttons shifting, images popping in late, etc. This score was already good, so it didn't need any work.</p>
+    </div>
+
+    <div class="vitals-card vitals-bad">
+      <p class="vitals-name">Speed Index</p>
+      <p class="vitals-value">12.8s</p>
+      <p class="vitals-desc">How quickly the page's content fills in visually, from start to finish. This is the metric that most closely matched what the client meant by "the store feels slow."</p>
+    </div>
+  </div>
+
+  <p class="case-text" style="margin-top:22px;">
+    The pattern here was clear: Largest Contentful Paint, Total Blocking Time, and Speed Index were all in the red, and all three point to the same root cause — too much unnecessary code loading and running before the page could settle. That's exactly why the image compression and the async/defer code cleanup in the steps above made the biggest difference to the final result.
+  </p>
+</section>
+
+<!-- ===== BEFORE & AFTER ===== -->
+<section class="case-section" id="sectionBeforeAfter">
+  <h2 class="case-heading">Before &amp; After</h2>
+
+  <div class="ba-grid">
+    <div class="ba-card">
+      <p class="ba-label">Before — 12 second load time</p>
+      <a href="assets/before.jpeg" class="ba-view-link" target="_blank" rel="noopener">View Before Result</a>
+      <div class="ba-shot-placeholder">
+        <img src="assets/before.png" alt="Glitter.com PageSpeed Insights report before optimization" class="ba-shot">
+      </div>
+    </div>
+
+
+      <div class="ba-card">
+      <p class="ba-label">After — 2 second load time</p>
+      <a href="assets/after.png" class="ba-view-link" target="_blank" rel="noopener">View After Result</a>
+      <div class="ba-shot-placeholder">
+        <img src="assets/after.png" alt="Glitter.com PageSpeed Insights report before optimization" class="ba-shot">
+      </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section class="case-section" id="sectionResults">
+  <h2 class="case-heading">Results</h2>
+  <p class="case-text">
+    After all these fixes, I ran the speed test again — the store's load time dropped from 12 seconds down to just 1–2 seconds. That's a reduction of over 85%, giving every visitor a faster, smoother experience from the moment they land on the store.
+  </p>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="case-cta" id="sectionCta">
+  <h2 class="case-heading">Let's Work Together</h2>
+  <p class="case-text">
+    No Shopify store should take longer than 3 seconds to load. When it does, customers get impatient — they don't wait around, they leave before they even see your products. And that's a sale you never get back. If your store is running slow, let's fix it before it costs you another customer.
+  </p>
+  <a href="https://wa.me/923081964231" class="case-btn-solid" target="_blank" rel="noopener">Get a Free Speed Check</a>
+</section>
+
+<script src="speed.js"></script>
+</body>
+</html>

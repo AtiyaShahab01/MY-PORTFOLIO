@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Features Case Study — Atiya Shahab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="glitter.css">
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<header class="case-topbar">
+  <a href="index.html" class="case-logo">Atiya <span class="logo-highlight">Shahab</span></a>
+  <a href="index.html#projects" class="case-back">← Back to Projects</a>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="case-hero" id="caseHero">
+  <h1 class="case-title">Custom Features Case Study</h1>
+  <p class="case-subtitle">Glitter.com — two custom features I built for this store: a personalized gift tool, and a booking system that stops double-bookings.</p>
+</section>
+
+<!-- ========================================================= -->
+<!-- FEATURE 1: MAKE YOUR OWN GIFT                              -->
+<!-- ========================================================= -->
+
+<div class="feature-divider">
+  <span class="feature-tag">Feature 01</span>
+  <h2 class="feature-name">Make Your Own Gift</h2>
+  <!-- TODO: replace # with the real product page link -->
+  <a href="https://glitterkw.com/products/create-your-own-gift" class="feature-view-link" target="_blank" rel="noopener">View Live Section →</a>
+</div>
+
+<section class="case-section" id="giftRequirement">
+  <h3 class="case-heading">The Requirement</h3>
+  <p class="case-text">
+    The client wanted a product where customers could build their own gift box — writing a recipient's name ("To"), a short message, and their own name ("From") right onto the packaging, like a greeting card. Customers needed to see how their text would look before ordering, and that same information had to show up clearly in Shopify admin, so the packaging team knew exactly what to write on each box. And if a customer ordered a bundle of several boxes, each one needed its own separate message.
+  </p>
+</section>
+
+<section class="case-section" id="giftProcess">
+  <h3 class="case-heading">What I Did</h3>
+
+  <div class="case-steps">
+    <div class="case-step">
+      <span class="step-num">1</span>
+      <div class="step-body">
+        <h4 class="step-title">Built a dedicated template</h4>
+        <p class="step-text">This product got its own template in Shopify, so the popup only shows up here — every other product on the store stays exactly the same.</p>
+      </div>
+    </div>
+
+    <div class="case-step">
+      <span class="step-num">2</span>
+      <div class="step-body">
+        <h4 class="step-title">Added a popup before Add to Cart</h4>
+        <p class="step-text">Instead of adding the product straight to cart, clicking "Add to Cart" opens a popup first — a preview of the gift box, with three fields below it: "To," "Message" (max 50 characters), and "From."</p>
+      </div>
+    </div>
+
+    <div class="case-step">
+      <span class="step-num">3</span>
+      <div class="step-body">
+        <h4 class="step-title">Made the preview update as you type</h4>
+        <p class="step-text">Whatever the customer types shows up inside the preview image instantly — no page reload needed — so they can see exactly how their message will look before ordering.</p>
+      </div>
+    </div>
+
+    <div class="case-step">
+      <span class="step-num">4</span>
+      <div class="step-body">
+        <h4 class="step-title">Saved the details with the order</h4>
+        <p class="step-text">Clicking "Continue" checks that all three fields are filled in. Once confirmed, "To," "Message," and "From" get attached to the product in the cart — so they appear automatically on the order in Shopify admin, word for word.</p>
+      </div>
+    </div>
+
+    <div class="case-step">
+      <span class="step-num">5</span>
+      <div class="step-body">
+        <h4 class="step-title">Made it work inside bundles too</h4>
+        <p class="step-text">When this product is part of a bundle, I hold the details in the browser first instead of sending them straight to the cart. Then, right before the bundle adds everything to cart, I step in and attach the correct "To / Message / From" to each box — so every box in the bundle keeps its own message.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" id="giftIssues">
+  <h3 class="case-heading">Issues I Solved</h3>
+
+  <div class="issue-list">
+    <div class="issue-card">
+      <p class="issue-title">Field name had to be changed everywhere</p>
+      <p class="issue-text">The "To" field started out labeled "Recipient's Name." When the client asked to shorten it to just "To," I had to update the name in two separate places in the code — the normal flow and the bundle flow — so the cart, checkout, and order page all matched.</p>
+    </div>
+    <div class="issue-card">
+      <p class="issue-title">Bundle app was deleting the message</p>
+      <p class="issue-text">The bundle app had its own way of preparing the cart data, and it would sometimes wipe out the message I'd added. I fixed this by letting the bundle app run first as normal, then adding my data right after — so it never gets deleted.</p>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" id="giftProof">
+  <h3 class="case-heading">See It In Action</h3>
+  <p class="case-text">
+    The customization popup on the live product page — the gift box preview updates as the customer types their message.
+  </p>
+  <div class="feature-shot-wrap">
+    <img src="assets/glitter-gift.png" alt="Make Your Own Gift customization popup with live preview" class="feature-shot">
+  </div>
+  <!-- TODO: replace # with the real product page link -->
+  <a href="https://glitterkw.com/products/create-your-own-gift" class="feature-view-link" target="_blank" rel="noopener">View Feature on Live Store →</a>
+</section>
+
+<section class="case-section" id="giftResult">
+  <h3 class="case-heading">Result</h3>
+  <p class="case-text">
+    Customers now see exactly what their message will look like before they buy, so they order with confidence. And every order , every product bundle  carries clear "To / Message / From" details straight to Shopify admin, so the packaging team always knows what to write on each box.
+  </p>
+</section>
+
+<!-- ========================================================= -->
+<!-- FEATURE 2: BOOK YOUR CATERING                              -->
+<!-- ========================================================= -->
+
+<div class="feature-divider">
+  <span class="feature-tag">Feature 02</span>
+  <h2 class="feature-name">Book Your Catering</h2>
+  <!-- TODO: replace # with the real product page link -->
+  <a href="https://glitterkw.com/products/book-your-catering" class="feature-view-link" target="_blank" rel="noopener">View Live Section →</a>
+</div>
+
+<section class="case-section" id="cateringRequirement">
+  <h3 class="case-heading">The Requirement</h3>
+  <p class="case-text">
+    The client's catering service runs on real resources — a signature pink car, staff, and equipment — that can only be in one place at a time. Customers needed to pick at least 50 KWD worth of items (10–13 products) through the bundle app, then book a date and time for the catering to arrive: only within the next 30 days, and at least a day in advance. Most importantly, two customers could never be allowed to book the same date and time — otherwise the car and staff would need to be in two places at once.
+  </p>
+</section>
+
+<section class="case-section" id="cateringProblem">
+  <h3 class="case-heading">The Problem</h3>
+  <p class="case-text">
+    Shopify doesn't understand scheduling. It only tracks how many items are in stock — it has no idea what a "time slot" is. So if two customers picked the same date and time and checked out around the same moment, Shopify would accept both orders without a warning, leaving the client with two bookings that clash.
+  </p>
+</section>
+
+<section class="case-section" id="cateringSolution">
+  <h3 class="case-heading">The Solution</h3>
+  <p class="case-text">
+    I connected the store to Google Firebase — a real-time database that sits outside Shopify and works like a lock on each time slot. Every date and time combination gets its own entry, checked the moment a customer taps "Confirm Booking":
+  </p>
+
+  <div class="case-steps">
+    <div class="case-step">
+      <span class="step-num">1</span>
+      <div class="step-body">
+        <p class="step-text">If that slot has never been booked, it gets marked "pending" with a 20-minute timer — a temporary hold so the customer has time to finish checkout before anyone else can take it.</p>
+      </div>
+    </div>
+    <div class="case-step">
+      <span class="step-num">2</span>
+      <div class="step-body">
+        <p class="step-text">If the slot is already confirmed, the customer sees an error right away: "Sorry, this date and time slot is already booked."</p>
+      </div>
+    </div>
+    <div class="case-step">
+      <span class="step-num">3</span>
+      <div class="step-body">
+        <p class="step-text">If someone else is checking out for that slot right now, the customer sees: "This slot is currently being booked by someone else."</p>
+      </div>
+    </div>
+    <div class="case-step">
+      <span class="step-num">4</span>
+      <div class="step-body">
+        <p class="step-text">If a hold's 20 minutes run out and no one completed checkout, the slot opens back up for the next customer.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="case-text" style="margin-top:18px;">
+    On the popup itself, the date and time are picked with a date field and two radio buttons — a radio button only ever lets one option be selected, so a customer can only choose one date and one time slot per order. Once the booking is confirmed, those details are saved with the order, so they show up clearly on the admin order page.
+  </p>
+</section>
+
+<section class="case-section" id="cateringIssues">
+  <h3 class="case-heading">Issues I Solved</h3>
+
+  <div class="issue-list">
+    <div class="issue-card">
+      <p class="issue-title">Minimum order was being skipped</p>
+      <p class="issue-text">A different product ("Hair Clips") could be bought directly from search without meeting the 50 KWD minimum. The reason: it wasn't linked to any collection, so the minimum-order check never ran on it. I fixed this by marking it "Unlisted," so it's only reachable through the bundle.</p>
+    </div>
+    <div class="issue-card">
+      <p class="issue-title">Old dates showing up on iPhone</p>
+      <p class="issue-text">Reopening the popup on an iPhone sometimes showed outdated date limits. I fixed this by recalculating the allowed date range every time the popup opens, instead of setting it once when the page loads.</p>
+    </div>
+    <div class="issue-card">
+      <p class="issue-title">Old data coming back after pressing "Back"</p>
+      <p class="issue-text">On iPhone, pressing the browser's back button would sometimes bring back old, outdated bundle data instead of a fresh page. I fixed this by detecting when a page is restored from memory like that, and forcing it to reload fresh.</p>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" id="cateringProof">
+  <h3 class="case-heading">See It In Action</h3>
+  <p class="case-text">
+    The catering booking popup on the live product page — date and time selection, with conflict checking running behind the scenes.
+  </p>
+  <div class="feature-shot-wrap">
+    <img src="assets/glitter-catering.png" alt="Book Your Catering slot booking popup" class="feature-shot">
+  </div>
+  <!-- TODO: replace # with the real product page link -->
+  <a href="https://glitterkw.com/products/book-your-catering" class="feature-view-link" target="_blank" rel="noopener">View Feature on Live Store →</a>
+</section>
+
+<section class="case-section" id="cateringResult">
+  <h3 class="case-heading">Result</h3>
+  <p class="case-text">
+    Two customers can no longer book the same date and time — whoever confirms first gets it, and everyone else finds out right away that it's taken. This kind of scheduling conflict is something Shopify simply doesn't handle on its own, which is why an outside real-time database was the right fix.
+  </p>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="case-cta" id="sectionCta">
+  <h2 class="case-heading">Let's Work Together</h2>
+  <p class="case-text">
+    Whether it's a personalization flow, a booking system, or a custom feature Shopify doesn't offer out of the box — if your store needs something built from scratch, let's talk about it.
+  </p>
+  <a href="https://wa.me/923081964231" class="case-btn-solid" target="_blank" rel="noopener">Let's Build It</a>
+</section>
+
+<script src="glitter.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atiya — Shopify Frontend Developer & Performance Marketer</title>
+<script>
+  // Applied before CSS loads, so the page never flashes the wrong theme
+  (function(){
+    var saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Atiya <span class="logo-highlight">Shahab</span></a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <div class="nav-menu" id="navLinks">
+      <div class="drawer-brand">Atiya</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#reviews" class="nav-link">Testimonials/Reviews</a></li>
+        <li><a href="#contact" class="nav-link">Contact Me</a></li>
+        <li><button type="button" class="theme-toggle" id="themeToggle">Light Mode</button></li>
+      </ul>
+
+      <div class="nav-social-block">
+        <div class="nav-divider"></div>
+        <span class="social-label">Follow on Social</span>
+        <div class="nav-socials">
+          <a href="https://www.instagram.com/shopifydeveloper_/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.55 1.8c.46-.16 1.26-.35 2.43-.4C9.25 1.34 9.63 1.33 12 1.33Zm0 1.84c-3.15 0-3.5.01-4.74.07-1.02.05-1.57.21-1.94.36-.49.19-.83.42-1.2.79-.37.37-.6.71-.79 1.2-.15.37-.31.92-.36 1.94-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.02.21 1.57.36 1.94.19.49.42.83.79 1.2.37.37.71.6 1.2.79.37.15.92.31 1.94.36 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.02-.05 1.57-.21 1.94-.36.49-.19.83-.42 1.2-.79.37-.37.6-.71.79-1.2.15-.37.31-.92.36-1.94.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.02-.21-1.57-.36-1.94a3.06 3.06 0 0 0-.79-1.2 3.06 3.06 0 0 0-1.2-.79c-.37-.15-.92-.31-1.94-.36-1.24-.06-1.59-.07-4.74-.07Zm0 3.13a4.87 4.87 0 1 1 0 9.74 4.87 4.87 0 0 1 0-9.74Zm0 8.03a3.16 3.16 0 1 0 0-6.32 3.16 3.16 0 0 0 0 6.32Zm6.2-8.23a1.14 1.14 0 1 1-2.27 0 1.14 1.14 0 0 1 2.27 0Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/atiya-shahab-5b704b36a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+          <a href="https://wa.me/923081964231" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.05h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.29c0-4.52 3.68-8.2 8.2-8.2 2.19 0 4.25.86 5.8 2.41a8.14 8.14 0 0 1 2.4 5.8c0 4.52-3.68 8.13-8.17 8.13Zm4.47-6.13c-.24-.12-1.44-.71-1.67-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.3-.01-.46-.01a.9.9 0 0 0-.65.3c-.22.24-.85.83-.85 2.03 0 1.2.87 2.35.99 2.51.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-overlay"></div>
+
+  <div class="hero-content" id="heroContent">
+    <p class="hero-eyebrow">Hi, I'm Atiya!</p>
+    <h1 class="hero-heading">Shopify Developer | Bug Fixes, Features & Custom Builds</h1>
+    <p class="hero-tagline">
+      I build high-converting, well-optimized Shopify stores that turn visitors into customers — I fix bugs and build custom features your store needs.
+    </p>
+    <a href="#contact" class="hero-btn">Work With Me</a>
+  </div>
+
+  <div class="hero-image-wrap" id="heroImageWrap">
+    <img src="assets/atiya.webp" alt="Atiya, Shopify Developer" class="hero-image" id="heroImage" fetchpriority="high">
+    <a href="https://wa.me/923081964231" class="hero-image-badge">Get Quote</a>
+  </div>
+</section>
+
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text" id="aboutText">
+      <p class="about-eyebrow">About Me</p>
+      <p class="about-desc">
+        I'm a Shopify Developer — not a drag-and-drop builder. With 2 years of experience, my main focus is on CRO and building speed-optimized Shopify stores that load fast and convert well, while also adding custom features tailored to each store's needs. Alongside this, I offer reliable bug-fixing services, app integrations, and basic SEO support to help brands grow and scale their online business effectively.
+      </p>
+    </div>
+
+    <div class="about-stats" id="aboutStats">
+      <div class="stat-pill">
+        <span class="stat-number" data-target="2" data-suffix="+">0+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-number" data-target="40" data-suffix="+">0+</span>
+        <span class="stat-label">Successful Projects</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-number" data-target="100" data-suffix="%">0%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="projects" id="projects">
+  <div class="projects-inner">
+    <p class="projects-eyebrow">My Work</p>
+    <p class="projects-subtext">Showcasing my recent projects: a collection of Shopify stores I've developed and optimized for conversions, growth, and user experience.</p>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <a href="speed.html" class="project-card">
+        <div class="project-img-wrap">
+          <img src="assets/speed.jpg" alt="Speed optimization case study" class="project-img" loading="lazy" decoding="async">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">SPEED OPTIMIZATION</h3>
+          <p class="project-desc">Optimized this Shopify store's speed for a faster, smoother experience. View the case study for further project details.</p>
+          <span class="case-study-link">View Case Study →</span>
+        </div>
+      </a>
+
+      <a href="https://armasclothing.com/" class="project-card" target="_blank" rel="noopener">
+        <div class="project-img-wrap">
+          <img src="assets/armas.png" alt="Armas Clothing Shopify store" class="project-img" loading="lazy" decoding="async">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">ARMAS CLOTHING</h3>
+          <p class="project-desc">I built this Shopify store completely from scratch with a simple, minimal design — no complex functionality. While building this store, my main focus was on keeping it clean and user-friendly, easy to navigate, and speed-optimized for performance.</p>
+        </div>
+      </a>
+
+      <a href="glitter.html" class="project-card">
+        <div class="project-img-wrap">
+          <img src="assets/custom.jpg" alt="Custom Shopify features case study" class="project-img" loading="lazy" decoding="async">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">CUSTOM FEATURES</h3>
+          <p class="project-desc">Built two custom features for this Shopify store — a personalized gift customization tool with live preview, and a real-time booking system that prevents double-bookings. View the case study for full project details.</p>
+          <span class="case-study-link">View Case Study →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="skills" id="skills">
+  <div class="skills-inner">
+    <div class="skills-text" id="skillsText">
+      <h2 class="skills-heading"><span id="skillsTyped"></span><span class="typed-cursor">|</span></h2>
+      <p class="skills-desc">
+        I specialize in building custom Shopify features and debugging tricky store issues — from personalization flows to booking systems. My focus is on building well-optimized, high-converting Shopify stores that load fast and turn visitors into customers.
+      </p>
+    </div>
+
+    <div class="skills-pills" id="skillsPills">
+      <span class="skill-pill">HTML5</span>
+      <span class="skill-pill">CSS3</span>
+      <span class="skill-pill">Tailwind CSS</span>
+      <span class="skill-pill">Vanilla JS</span>
+      <span class="skill-pill">Liquid</span>
+      <span class="skill-pill">Git / GitHub</span>
+      <span class="skill-pill">Store Speed Optimization</span>
+      <span class="skill-pill">Custom Sections</span>
+      <span class="skill-pill">Bug Fixing</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <h2 class="reviews-heading"><span id="reviewsTyped"></span><span class="typed-cursor">|</span></h2>
+    <p class="reviews-subtext">Real feedback from clients I've worked with — straight from our conversations.</p>
+
+    <div class="reviews-carousel-wrap">
+      <button class="carousel-arrow carousel-prev" id="reviewPrev" aria-label="Previous review">‹</button>
+
+      <div class="reviews-track" id="reviewsTrack">
+        <div class="review-card">
+          <div class="review-img-wrap">
+            <img src="assets/review1.jpeg" alt="Client review screenshot" class="review-img" loading="lazy" decoding="async">
+            <div class="review-caption">
+              <p class="review-name">James Mitchell</p>
+              <p class="review-country">United Kingdom</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-img-wrap">
+            <img src="assets/review2.jpeg" alt="Client review screenshot" class="review-img" loading="lazy" decoding="async">
+            <div class="review-caption">
+              <p class="review-name">Dalal</p>
+              <p class="review-country">Kuwait</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-img-wrap">
+            <img src="assets/review3.jpeg" alt="Client review screenshot" class="review-img" loading="lazy" decoding="async">
+            <div class="review-caption">
+              <p class="review-name">Jae-won Choi</p>
+              <p class="review-country">Korea</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-img-wrap">
+            <img src="assets/review4.jpeg" alt="Client review screenshot" class="review-img" loading="lazy" decoding="async">
+            <div class="review-caption">
+              <p class="review-name">Mehdi</p>
+              <p class="review-country">Germany</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-img-wrap">
+            <img src="assets/review5.jpeg" alt="Client review screenshot" class="review-img" loading="lazy" decoding="async">
+            <div class="review-caption">
+              <p class="review-name">Arisha</p>
+              <p class="review-country">Pakistan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-arrow carousel-next" id="reviewNext" aria-label="Next review">›</button>
+    </div>
+
+    <p class="swipe-hint">
+      <span class="swipe-hint-arrow">←</span> Swipe to see more <span class="swipe-hint-arrow">→</span>
+    </p>
+
+    <div class="carousel-dots" id="reviewDots"></div>
+  </div>
+</section>
+
+<!-- Lightbox for enlarged review screenshots -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img src="" alt="Enlarged review screenshot" class="lightbox-img" id="lightboxImg">
+</div>
+
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-text" id="contactText">
+      <h2 class="contact-heading">Let's Work Together</h2>
+      <p class="contact-subtext">Have a project in mind, a bug that needs fixing, or a store that needs speeding up? Fill out the form and I'll get back to you.</p>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <input type="hidden" name="access_key" value="b13d987b-8bff-49b4-b415-5f000d1df277">
+      <input type="hidden" name="subject" value="New message from your portfolio site">
+      <input type="checkbox" name="botcheck" class="hidden-honeypot" style="display:none">
+
+      <div class="form-group">
+        <label for="contactName">Name</label>
+        <input type="text" id="contactName" name="name" placeholder="Your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contactEmail">Email</label>
+        <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contactMessage">Message</label>
+        <textarea id="contactMessage" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+      </div>
+
+      <button type="submit" class="contact-submit" id="contactSubmitBtn">Send Message</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">Atiya <span class="logo-highlight">Shahab</span></a>
+
+    <div class="footer-social-block">
+      <p class="footer-social-heading">Follow on Other Social Platforms</p>
+      <p class="footer-social-line">Let's stay connected beyond this page.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/shopifydeveloper_/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.55 1.8c.46-.16 1.26-.35 2.43-.4C9.25 1.34 9.63 1.33 12 1.33Zm0 1.84c-3.15 0-3.5.01-4.74.07-1.02.05-1.57.21-1.94.36-.49.19-.83.42-1.2.79-.37.37-.6.71-.79 1.2-.15.37-.31.92-.36 1.94-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.02.21 1.57.36 1.94.19.49.42.83.79 1.2.37.37.71.6 1.2.79.37.15.92.31 1.94.36 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.02-.05 1.57-.21 1.94-.36.49-.19.83-.42 1.2-.79.37-.37.6-.71.79-1.2.15-.37.31-.92.36-1.94.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.02-.21-1.57-.36-1.94a3.06 3.06 0 0 0-.79-1.2 3.06 3.06 0 0 0-1.2-.79c-.37-.15-.92-.31-1.94-.36-1.24-.06-1.59-.07-4.74-.07Zm0 3.13a4.87 4.87 0 1 1 0 9.74 4.87 4.87 0 0 1 0-9.74Zm0 8.03a3.16 3.16 0 1 0 0-6.32 3.16 3.16 0 0 0 0 6.32Zm6.2-8.23a1.14 1.14 0 1 1-2.27 0 1.14 1.14 0 0 1 2.27 0Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/atiya-shahab-5b704b36a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+        </a>
+        <a href="https://wa.me/923081964231" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.05h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.29c0-4.52 3.68-8.2 8.2-8.2 2.19 0 4.25.86 5.8 2.41a8.14 8.14 0 0 1 2.4 5.8c0 4.52-3.68 8.13-8.17 8.13Zm4.47-6.13c-.24-.12-1.44-.71-1.67-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.3-.01-.46-.01a.9.9 0 0 0-.65.3c-.22.24-.85.83-.85 2.03 0 1.2.87 2.35.99 2.51.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <p class="footer-copy">© 2026 Atiya Shahab. All rights reserved.</p>
+  </div>
+</footer>
+
+
+<script src="script.js" defer></script>
+</body>
+</html>
