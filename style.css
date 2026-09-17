@@ -269,9 +269,9 @@ body{
   width:20px; height:20px;
 }
 .social-icon:hover{
-  color:var(--ink);
-  background:rgba(255,255,255,.85);
-  border-color:rgba(255,255,255,.85);
+  color:#0B0B0C;
+  background:#FFFFFF;
+  border-color:#FFFFFF;
   transform:translateY(-3px) scale(1.08);
 }
 
@@ -1550,51 +1550,65 @@ body{
 
 /* ---------- FOOTER ---------- */
 .site-footer{
+  position:relative;
   background:var(--hero-bg);
   border-top:1px solid var(--hairline);
-  padding:36px 6vw;
+  padding:56px 6vw 40px;
+  overflow:hidden;
   transition:background .3s ease, border-color .3s ease;
+}
+.site-footer::before{
+  content:'';
+  position:absolute;
+  top:0; left:6vw;
+  width:180px;
+  height:180px;
+  background:radial-gradient(circle, rgba(47,225,240,.10) 0%, rgba(47,225,240,0) 70%);
+  transform:translateY(-40%);
+  pointer-events:none;
 }
 
 .footer-inner{
+  position:relative;
+  z-index:1;
   max-width:1240px;
   margin:0 auto;
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-  flex-wrap:wrap;
+  flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
+  gap:32px;
 }
 
-.footer-logo{
-  font-size:16px;
-  font-weight:700;
-  color:var(--heading-color);
-  text-decoration:none;
-  transition:opacity .2s ease;
-}
-.footer-logo:hover{
-  opacity:.8;
-}
-.footer-logo .logo-highlight{
-  color:var(--cyan-text);
-}
-
-.footer-social-block{
+.footer-content{
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:flex-start;
+  text-align:left;
 }
+
+.footer-heading{
+  color:var(--cyan-text);
+  font-size:clamp(20px, 2.4vw, 26px);
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.footer-text{
+  color:var(--text-muted);
+  font-size:14px;
+  line-height:1.7;
+  max-width:52ch;
+  margin-bottom:24px;
+}
+
 .footer-social-heading{
   color:var(--heading-color);
-  font-size:13.5px;
-  font-weight:600;
-  margin-bottom:4px;
-}
-.footer-social-line{
-  color:var(--text-muted);
   font-size:12px;
-  margin-bottom:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:14px;
 }
 
 .footer-socials{
@@ -1610,15 +1624,9 @@ body{
 
 @media (max-width:860px){
   .site-footer{
-    padding:32px 24px;
+    padding:48px 24px 32px;
   }
-  .footer-inner{
-    flex-direction:column;
-    align-items:flex-start;
-    text-align:left;
-    gap:22px;
-  }
-  .footer-social-block{
-    align-items:flex-start;
+  .footer-text{
+    max-width:none;
   }
 }
