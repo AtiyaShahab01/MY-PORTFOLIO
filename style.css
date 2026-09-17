@@ -269,10 +269,7 @@ body{
   width:20px; height:20px;
 }
 .social-icon:hover{
-  color:#0B0B0C;
-  background:#FFFFFF;
-  border-color:#FFFFFF;
-  transform:translateY(-3px) scale(1.08);
+  transform:translateY(-3px) scale(1.2);
 }
 
 @media (max-width:860px){
@@ -1390,7 +1387,7 @@ body{
 /* ---------- CONTACT SECTION ---------- */
 .contact{
   position:relative;
-  padding:100px 6vw;
+  padding:72px 6vw;
   background:var(--canvas);
   overflow:hidden;
   scroll-margin-top:var(--nav-h);
@@ -1416,7 +1413,7 @@ body{
 
 .contact-text{
   text-align:center;
-  margin-bottom:44px;
+  margin-bottom:32px;
 
   opacity:0;
   transform:translateY(30px);
@@ -1444,7 +1441,7 @@ body{
 .contact-form{
   display:flex;
   flex-direction:column;
-  gap:20px;
+  gap:14px;
 
   opacity:0;
   transform:translateY(30px);
@@ -1459,11 +1456,17 @@ body{
 .form-group{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:6px;
+  flex:1;
+}
+.form-row{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 .form-group label{
   color:var(--cyan-text-light);
-  font-size:13.5px;
+  font-size:13px;
   font-weight:600;
 }
 
@@ -1473,10 +1476,10 @@ body{
   background:var(--input-bg);
   border:1px solid var(--hairline);
   border-radius:10px;
-  padding:13px 16px;
+  padding:10px 14px;
   color:var(--input-text);
   font-family:var(--font);
-  font-size:14.5px;
+  font-size:14px;
   transition:border-color .25s ease, box-shadow .25s ease, background .25s ease;
 }
 .form-group input::placeholder,
@@ -1492,7 +1495,7 @@ body{
 }
 .form-group textarea{
   resize:vertical;
-  min-height:120px;
+  min-height:90px;
 }
 
 .contact-submit{
@@ -1528,10 +1531,11 @@ body{
 
 @media (max-width:860px){
   .contact{
-    padding:64px 24px;
+    padding:48px 24px;
   }
   .contact-text{
     text-align:left;
+    margin-bottom:28px;
   }
   .contact-subtext{
     margin:0;
@@ -1539,6 +1543,13 @@ body{
   .contact-submit{
     align-self:stretch;
     text-align:center;
+  }
+}
+
+@media (min-width:641px){
+  .form-row{
+    flex-direction:row;
+    gap:16px;
   }
 }
 
@@ -1628,5 +1639,28 @@ body{
   }
   .footer-text{
     max-width:none;
+  }
+}
+
+@media (min-width:861px){
+  .footer-inner{
+    flex-direction:row;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:40px;
+  }
+  .footer-content{
+    flex:1 1 420px;
+    max-width:560px;
+  }
+  .footer-social{
+    flex:0 0 auto;
+  }
+  .footer-copy{
+    flex:0 0 100%;
+    order:3;
+    padding-top:8px;
+    border-top:1px solid var(--hairline);
   }
 }
