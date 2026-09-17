@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Custom Features Case Study — Atiya Shahab</title>
 <script>
-  // Applied before CSS loads, so the page never flashes the wrong theme
+  // Applied before CSS loads, so the page never flashes the wrong theme.
+  // Light is the default look; dark mode only kicks in if the visitor
+  // explicitly chose it before (saved in localStorage).
   (function(){
     var saved = localStorage.getItem('theme');
-    if (saved === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
+    if (saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
     }
   })();
 </script>

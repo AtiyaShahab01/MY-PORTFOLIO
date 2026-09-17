@@ -205,11 +205,27 @@ html{
   margin-top:26px;
 }
 .vitals-card{
+  position:relative;
+  overflow:hidden;
   background:var(--panel-dark);
   border:1px solid var(--hairline);
   border-radius:12px;
   padding:18px 20px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s ease, background .3s ease, box-shadow .3s ease;
+}
+.vitals-card::before{
+  content:'';
+  position:absolute;
+  top:0; left:-60%;
+  width:40%;
+  height:100%;
+  background:linear-gradient(115deg, transparent, rgba(47,225,240,.14), transparent);
+  transform:skewX(-15deg);
+  transition:left .6s ease;
+  pointer-events:none;
+}
+.vitals-card:hover::before{
+  left:130%;
 }
 .vitals-card:hover{
   transform:translateY(-4px);
@@ -254,11 +270,27 @@ html{
   margin-top:10px;
 }
 .ba-card{
+  position:relative;
+  overflow:hidden;
   background:var(--panel-dark);
   border:1px solid var(--hairline);
   border-radius:14px;
   padding:20px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s ease, box-shadow .3s ease;
+}
+.ba-card::before{
+  content:'';
+  position:absolute;
+  top:0; left:-60%;
+  width:40%;
+  height:100%;
+  background:linear-gradient(115deg, transparent, rgba(47,225,240,.14), transparent);
+  transform:skewX(-15deg);
+  transition:left .6s ease;
+  pointer-events:none;
+}
+.ba-card:hover::before{
+  left:130%;
 }
 .ba-card:hover{
   transform:translateY(-4px);

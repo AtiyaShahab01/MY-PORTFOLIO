@@ -1,33 +1,16 @@
 :root{
-  --ink:#0B0B0C;
-  --canvas:#111113;
-  --cyan:#2FE1F0;
-  --cyan-light:#8FEAF2;
+  --ink:#FFFFFF;
+  --canvas:#F3F4F6;
+  --cyan:#0B6E82;
+  --cyan-light:#0B6E82;
   --cyan-text:var(--cyan);
   --cyan-text-light:var(--cyan-light);
-  --text-muted:#C9C9CE;
-  --text-body:#E7E7EA;
+  --text-muted:#5B5F66;
+  --text-body:#1B1C1F;
 
   --font: 'Poppins', sans-serif;
 
   --nav-h: 0px;
-
-  --hero-bg:var(--ink);
-  --panel-dark:#0E0E10;
-  --pure-black:#000;
-  --heading-color:#fff;
-  --nav-bg:rgba(11,11,12,.9);
-  --nav-bg-scrolled:rgba(11,11,12,.97);
-  --input-bg:#0E0E10;
-  --input-text:#fff;
-  --hairline:rgba(255,255,255,.09);
-}
-
-/* ---------- LIGHT MODE ---------- */
-:root[data-theme="light"]{
-  --canvas:#F3F4F6;
-  --text-muted:#5B5F66;
-  --text-body:#1B1C1F;
 
   --hero-bg:#FFFFFF;
   --panel-dark:#FFFFFF;
@@ -38,11 +21,30 @@
   --input-bg:#FFFFFF;
   --input-text:#0B0B0C;
   --hairline:rgba(11,11,12,.1);
+  --grid-line:rgba(11,11,12,.06);
+}
 
-  --cyan:#0B6E82;
-  --ink:#FFFFFF;
-  --cyan-text:#0B6E82;
-  --cyan-text-light:#0B6E82;
+/* ---------- DARK MODE ---------- */
+:root[data-theme="dark"]{
+  --canvas:#111113;
+  --text-muted:#C9C9CE;
+  --text-body:#E7E7EA;
+
+  --hero-bg:#0B0B0C;
+  --panel-dark:#0E0E10;
+  --pure-black:#000;
+  --heading-color:#fff;
+  --nav-bg:rgba(11,11,12,.9);
+  --nav-bg-scrolled:rgba(11,11,12,.97);
+  --input-bg:#0E0E10;
+  --input-text:#fff;
+  --hairline:rgba(255,255,255,.09);
+  --grid-line:rgba(255,255,255,.05);
+
+  --cyan:#2FE1F0;
+  --ink:#0B0B0C;
+  --cyan-text:#2FE1F0;
+  --cyan-text-light:#8FEAF2;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -443,8 +445,8 @@ body{
   top:0; left:0;
   width:100%; height:100%;
   background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size:44px 44px;
   -webkit-mask-image:radial-gradient(ellipse 55% 75% at 25% 50%, black 25%, transparent 70%),
                       radial-gradient(ellipse 45% 65% at 82% 50%, black 20%, transparent 70%);
@@ -767,6 +769,7 @@ body{
 }
 
 .project-card{
+  position:relative;
   background:var(--panel-dark);
   border-radius:14px;
   border:1px solid var(--hairline);
@@ -781,6 +784,21 @@ body{
   transform:translateY(30px);
   transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1),
              border-color .3s ease, box-shadow .3s ease;
+}
+.project-card::before{
+  content:'';
+  position:absolute;
+  top:0; left:-60%;
+  width:40%;
+  height:100%;
+  background:linear-gradient(115deg, transparent, rgba(47,225,240,.18), transparent);
+  transform:skewX(-15deg);
+  transition:left .6s ease;
+  z-index:2;
+  pointer-events:none;
+}
+.project-card:hover::before{
+  left:130%;
 }
 .project-card.in-view{
   opacity:1;
@@ -907,8 +925,8 @@ body{
   top:0; left:0;
   width:100%; height:100%;
   background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size:44px 44px;
   -webkit-mask-image:radial-gradient(ellipse 50% 70% at 20% 50%, black 20%, transparent 70%),
                       radial-gradient(ellipse 45% 60% at 85% 50%, black 15%, transparent 70%);
@@ -1135,6 +1153,19 @@ body{
   cursor:pointer;
   transition:transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s ease, box-shadow .3s ease;
 }
+.review-img-wrap::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,.22) 50%, transparent 60%);
+  transform:translateX(-100%);
+  transition:transform .6s ease;
+  z-index:2;
+  pointer-events:none;
+}
+.review-img-wrap:hover::after{
+  transform:translateX(100%);
+}
 .review-img-wrap:hover{
   transform:translateY(-4px);
   border-color:rgba(47,225,240,.35);
@@ -1229,15 +1260,14 @@ body{
   }
   .reviews-track{
     gap:14px;
-    -webkit-mask-image:linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
-    mask-image:linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
-  }
-  /* in light mode the section background is light, so this edge-fade
-     reads as a soft white glow at the sides — shrink it so it's just
-     enough to hint "more content" without the glow being prominent */
-  :root[data-theme="light"] .reviews-track{
     -webkit-mask-image:linear-gradient(to right, transparent 0, black 8px, black calc(100% - 8px), transparent 100%);
     mask-image:linear-gradient(to right, transparent 0, black 8px, black calc(100% - 8px), transparent 100%);
+  }
+  /* in dark mode the section background is near-black, so a slightly
+     wider edge-fade reads better against the darker card shadows */
+  :root[data-theme="dark"] .reviews-track{
+    -webkit-mask-image:linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
   }
   .review-card{
     width:62vw;

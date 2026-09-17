@@ -45,25 +45,26 @@ if (navToggle && navLinks && navOverlay && navbarEl) {
 
 // Light / dark mode toggle — the inline script in <head> already
 // applies the saved theme before the page paints, so this just wires
-// up the button to flip it and keep localStorage in sync.
+// up the button to flip it and keep localStorage in sync. Light is
+// the default look; the button switches into dark mode.
 const themeToggle = document.getElementById('themeToggle');
 
 function updateToggleLabel(){
-  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  if (themeToggle) themeToggle.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (themeToggle) themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
 }
 
 if (themeToggle) {
   updateToggleLabel();
 
   themeToggle.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (isLight) {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
       document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
     }
     updateToggleLabel();
     closeDrawer();
