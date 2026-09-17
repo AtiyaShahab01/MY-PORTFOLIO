@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Custom Features Case Study — Atiya Shahab</title>
+<script>
+  // Applied before CSS loads, so the page never flashes the wrong theme
+  (function(){
+    var saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -30,7 +39,6 @@
 <div class="feature-divider">
   <span class="feature-tag">Feature 01</span>
   <h2 class="feature-name">Make Your Own Gift</h2>
-  <!-- TODO: replace # with the real product page link -->
   <a href="https://glitterkw.com/products/create-your-own-gift" class="feature-view-link" target="_blank" rel="noopener">View Live Section →</a>
 </div>
 
@@ -110,7 +118,6 @@
   <div class="feature-shot-wrap">
     <img src="assets/glitter-gift.png" alt="Make Your Own Gift customization popup with live preview" class="feature-shot">
   </div>
-  <!-- TODO: replace # with the real product page link -->
   <a href="https://glitterkw.com/products/create-your-own-gift" class="feature-view-link" target="_blank" rel="noopener">View Feature on Live Store →</a>
 </section>
 
@@ -128,7 +135,6 @@
 <div class="feature-divider">
   <span class="feature-tag">Feature 02</span>
   <h2 class="feature-name">Book Your Catering</h2>
-  <!-- TODO: replace # with the real product page link -->
   <a href="https://glitterkw.com/products/book-your-catering" class="feature-view-link" target="_blank" rel="noopener">View Live Section →</a>
 </div>
 
@@ -211,7 +217,6 @@
   <div class="feature-shot-wrap">
     <img src="assets/glitter-catering.png" alt="Book Your Catering slot booking popup" class="feature-shot">
   </div>
-  <!-- TODO: replace # with the real product page link -->
   <a href="https://glitterkw.com/products/book-your-catering" class="feature-view-link" target="_blank" rel="noopener">View Feature on Live Store →</a>
 </section>
 

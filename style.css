@@ -10,11 +10,8 @@
 
   --font: 'Poppins', sans-serif;
 
-  /* set at runtime by script.js to the navbar's real rendered height,
-     so the mobile hero can fill exactly the remaining viewport */
   --nav-h: 0px;
 
-  /* theme-swappable surface colors — dark mode values (default) */
   --hero-bg:var(--ink);
   --panel-dark:#0E0E10;
   --pure-black:#000;
@@ -1234,6 +1231,13 @@ body{
     gap:14px;
     -webkit-mask-image:linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
     mask-image:linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+  }
+  /* in light mode the section background is light, so this edge-fade
+     reads as a soft white glow at the sides — shrink it so it's just
+     enough to hint "more content" without the glow being prominent */
+  :root[data-theme="light"] .reviews-track{
+    -webkit-mask-image:linear-gradient(to right, transparent 0, black 8px, black calc(100% - 8px), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0, black 8px, black calc(100% - 8px), transparent 100%);
   }
   .review-card{
     width:62vw;

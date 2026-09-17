@@ -1,9 +1,13 @@
 /* Uses the shared theme variables (--ink, --canvas, --cyan, --text-muted,
-   --text-body, --nav-h) already defined in style.css — that file must be
-   linked before this one. */
+   --text-body, --nav-h, --pure-black, --panel-dark, --hairline,
+   --heading-color, --nav-bg) already defined in style.css — that file
+   must be linked before this one. These variables automatically flip
+   to their light-mode values when the main page's Light Mode toggle
+   sets data-theme="light" on <html>, since localStorage keeps that
+   choice in sync across every page. */
 
 body{
-  background:#000;
+  background:var(--pure-black);
 }
 
 html{
@@ -19,14 +23,14 @@ html{
   align-items:center;
   justify-content:space-between;
   padding:20px 6vw;
-  background:rgba(11,11,12,.9);
+  background:var(--nav-bg);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid var(--hairline);
 }
 .case-logo{
   font-size:19px;
   font-weight:700;
-  color:#fff;
+  color:var(--heading-color);
   text-decoration:none;
 }
 .case-logo .logo-highlight{
@@ -83,7 +87,7 @@ html{
   max-width:900px;
   margin:0 auto;
   padding:56px 6vw;
-  border-top:1px solid rgba(255,255,255,.07);
+  border-top:1px solid var(--hairline);
 
   opacity:0;
   transform:translateY(24px);
@@ -181,7 +185,7 @@ html{
   justify-content:center;
 }
 .step-title{
-  color:#8FEAF2;
+  color:var(--cyan-text-light, #8FEAF2);
   font-size:15.5px;
   font-weight:600;
   margin-bottom:6px;
@@ -201,8 +205,8 @@ html{
   margin-top:26px;
 }
 .vitals-card{
-  background:#0E0E10;
-  border:1px solid rgba(255,255,255,.07);
+  background:var(--panel-dark);
+  border:1px solid var(--hairline);
   border-radius:12px;
   padding:18px 20px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s ease, background .3s ease, box-shadow .3s ease;
@@ -210,8 +214,7 @@ html{
 .vitals-card:hover{
   transform:translateY(-4px);
   border-color:rgba(47,225,240,.35);
-  background:#121214;
-  box-shadow:0 14px 28px rgba(0,0,0,.35);
+  box-shadow:0 14px 28px rgba(0,0,0,.2);
 }
 .vitals-card.vitals-bad{
   border-color:rgba(255,90,90,.25);
@@ -220,7 +223,7 @@ html{
 .vitals-card.vitals-bad:hover{
   border-color:rgba(255,90,90,.5);
   background:rgba(255,90,90,.07);
-  box-shadow:0 14px 28px rgba(0,0,0,.35);
+  box-shadow:0 14px 28px rgba(0,0,0,.2);
 }
 .vitals-name{
   color:var(--text-body);
@@ -251,8 +254,8 @@ html{
   margin-top:10px;
 }
 .ba-card{
-  background:#0E0E10;
-  border:1px solid rgba(255,255,255,.07);
+  background:var(--panel-dark);
+  border:1px solid var(--hairline);
   border-radius:14px;
   padding:20px;
   transition:transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s ease, box-shadow .3s ease;
@@ -260,10 +263,10 @@ html{
 .ba-card:hover{
   transform:translateY(-4px);
   border-color:rgba(47,225,240,.3);
-  box-shadow:0 14px 28px rgba(0,0,0,.35);
+  box-shadow:0 14px 28px rgba(0,0,0,.2);
 }
 .ba-label{
-  color:#fff;
+  color:var(--heading-color);
   font-size:14px;
   font-weight:600;
   margin-bottom:10px;
@@ -284,7 +287,7 @@ html{
 .ba-shot-placeholder{
   width:100%;
   aspect-ratio:16/10;
-  border:1px dashed rgba(255,255,255,.18);
+  border:1px dashed var(--hairline);
   border-radius:10px;
   display:flex;
   align-items:center;
