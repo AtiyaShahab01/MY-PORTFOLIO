@@ -1506,7 +1506,7 @@ body{
 .form-group textarea:focus{
   outline:none;
   border-color:rgba(47,225,240,.6);
-  background:#101012;
+  background:var(--input-bg);
   box-shadow:0 0 0 3px rgba(47,225,240,.12);
 }
 .form-group textarea{
