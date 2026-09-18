@@ -1,4 +1,5 @@
 :root{
+  color-scheme:light;
   --ink:#FFFFFF;
   --canvas:#F3F4F6;
   --cyan:#0B6E82;
@@ -26,6 +27,7 @@
 
 /* ---------- DARK MODE ---------- */
 :root[data-theme="dark"]{
+  color-scheme:dark;
   --canvas:#111113;
   --text-muted:#C9C9CE;
   --text-body:#E7E7EA;
@@ -1481,6 +1483,20 @@ body{
   font-family:var(--font);
   font-size:14px;
   transition:border-color .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+/* Browser autofill (e.g. Chrome suggesting a saved email) paints its
+   own dark background by default, ignoring our theme — this forces
+   it to match the input's actual background and text color instead. */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group textarea:-webkit-autofill{
+  -webkit-text-fill-color:var(--input-text);
+  -webkit-box-shadow:0 0 0 1000px var(--input-bg) inset;
+  box-shadow:0 0 0 1000px var(--input-bg) inset;
+  caret-color:var(--input-text);
+  transition:background-color 5000s ease-in-out 0s;
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder{
